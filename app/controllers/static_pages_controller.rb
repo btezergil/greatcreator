@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    @site_name = SiteName.new
   end
 
   def help
