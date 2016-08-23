@@ -13,6 +13,6 @@ class ScriptExecuteController < ApplicationController
       ssh.close
       puts res
     end
-    redirect_to action: 'home'
+    redirect_to controller: 'static_pages', action: 'home'
   end
 end
