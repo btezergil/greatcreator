@@ -1,8 +1,8 @@
 class ScriptExecuteController < ApplicationController
 
   def instantiate
-    @site_name = SiteName.new
-    site_name = 'denememeneme65489'
+    site_name = @site_name.name
+
     @hostname = '162.243.39.228'
     @username = 'btezergil'
     @password = 'Tezergil_101'
@@ -13,6 +13,6 @@ class ScriptExecuteController < ApplicationController
       ssh.close
       puts res
     end
-    redirect_to controller: 'static_pages', action: 'home'
+    redirect_to root_url
   end
 end

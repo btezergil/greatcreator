@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :user
   resources :site_name
 
+  get 'new' => 'site_name#new'
+  post 'new' => 'site_name#instantiate'
+
   get 'instantiate' => 'script_execute#instantiate'
-  post 'instantiate' => 'script_execute#instantiate'
 end

@@ -5,18 +5,5 @@
     <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
     sample application.
   </h2>
-  <div class="input-group">
-    <%= form_for @site_name, url: {action: "instantiate", controller: "script_execute"}, html: {method: "get"} do |f| %>
-
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control' %>
-
-        <%= f.submit "Create my account", class: "btn btn-primary" %>
-    <% end %>
-    <input type="text" class="form-control" placeholder="Your site name...">
-    <span class="input-group-btn">
-        <%= link_to "Sign up now!", instantiate_path, class: "btn btn-default" %>
-      </span>
-  </div>
   <%= link_to "Sign up now!", instantiate_path, class: "btn btn-lg btn-primary" %>
 </div>
