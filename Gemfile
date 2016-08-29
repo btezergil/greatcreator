@@ -13,6 +13,8 @@ gem 'bootstrap-will_paginate'
 gem 'bootstrap-sass'
 gem 'sdoc', group: :doc
 gem 'net-ssh', '4.0.0beta2'
+gem 'resque', "~> 1.22.0"
+gem 'delayed_job_active_record'
 
 gem 'pg'
 # Use Puma as the app server
