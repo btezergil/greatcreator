@@ -4,12 +4,10 @@
     Enter your desired site name below and let the button do its magic
   </h2>
     <%= form_for (@site_name), url: {action: "instantiate", controller: "site_name"}, html: {method: "post"} do |f| %>
-
+        <%= render 'shared/error_messages' %>
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control' %>
 
         <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
-
-  <%= link_to "Sign up now!", instantiate_path, class: "btn btn-lg btn-primary" %>
 </div>
