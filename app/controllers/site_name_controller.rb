@@ -5,13 +5,22 @@ class SiteNameController < ApplicationController
 
   def instantiate
     @site_name = SiteName.new(site_name_params)
-    @site_name.save!
-    @site_name.send_later(:create_site, @site_name.name)
-    redirect_to root_url
+    if @site_name.save
+      flash[:success] = "Your site is being deployed."
+      @site_name.send_later(:create_site, @site_name.name)
+      redirect_to wait_path
+    else
+      flash[:danger] = @site_name.errors.full_messages.to_sentence
+      render "new"
+    end
+  end
+
+  def wait
+    @site_name = SiteName.last
   end
 
   private
   def site_name_params
-    params.require(:site_name).permit(:name)
+    params.require(:site_name).permit(:name, :email)
   end
 end

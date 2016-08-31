@@ -1,0 +1,29 @@
+<div class="center jumbotron">
+  <h1>Please wait...</h1>
+  <h2>
+    We are currently working to create your site...
+  </h2>
+
+  <input type="button" value="test" onClick="progress();" >
+  <div id="myProgress">
+    <div id="myBar"></div>
+  </div>
+</div>
+<script type="text/javascript">
+  function progress(){
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 10 );
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        location.href = "http://<%= @site_name.name %>.boradekor.com";
+      }
+      else {
+        width++;
+        elem.style.width = width + '%';
+      }
+    }
+  }
+  $(document).ready(progress());
+</script>

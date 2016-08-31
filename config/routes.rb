@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get 'new' => 'site_name#new'
   post 'new' => 'site_name#instantiate'
+  get 'wait' => 'site_name#wait'
 
   get 'instantiate' => 'script_execute#instantiate'
 end
