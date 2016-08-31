@@ -1,5 +1,4 @@
 class SiteName < ActiveRecord::Base
-  include Rails.application.routes.url_helpers
   validates :name, presence: true, length: {maximum: 50},
             uniqueness: true
   validates :email, presence: true, length: {maximum: 255},

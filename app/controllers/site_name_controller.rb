@@ -7,7 +7,8 @@ class SiteNameController < ApplicationController
     @site_name = SiteName.new(site_name_params)
     if @site_name.save
       flash[:success] = "Your site is being deployed."
-      @site_name.send_later(:create_site, @site_name.name + ";" + @site_name.id.to_s)
+      name_and_id = @site_name.name + "*" + @site_name.id.to_s
+      @site_name.send_later(:create_site, name_and_id)
       redirect_to wait_path
     else
       flash[:danger] = @site_name.errors.full_messages.to_sentence
