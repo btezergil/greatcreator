@@ -2,6 +2,9 @@ class SiteName < ActiveRecord::Base
   include Rails.application.routes.url_helpers
   validates :name, presence: true, length: {maximum: 50},
             uniqueness: true
+  validates :email, presence: true, length: {maximum: 255},
+            format: { with: /\A[\w+\-.]+@[a-z\-.]+\.[a-z]+\z/i },
+            uniqueness: { case_sensitive: false}
   def create_site(name)
     @hostname = '162.243.39.228'
     @username = 'btezergil'
